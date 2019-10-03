@@ -1,3 +1,9 @@
+/*
+*   QuickSort
+*   author: joseph
+*   date: 2019-10-03 
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
