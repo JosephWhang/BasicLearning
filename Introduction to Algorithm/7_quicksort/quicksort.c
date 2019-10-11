@@ -15,12 +15,27 @@ int Partition(int *a, int p, int r);
 int RandomPartition(int *a, int p, int r);
 void QuickSort(int *a, int p, int r);
 
+int main()
+{
+    int arr[ARR_SIZE] = {10, 5, 8, 12, 1, 3, 4, 9, 15, 2}, *p;
+    p = arr;
+    QuickSort(p, 0, ARR_SIZE-1);
+
+    printf("final:");
+    for (int i=0; i<ARR_SIZE; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
+
 void swap(int *a, int *b)
 {
     int temp = *a;
     *a = *b;
     *b = temp;
 }
+
 int Partition(int *a, int p, int r)
 {
     int x = a[r];
@@ -55,16 +70,4 @@ void QuickSort(int *a, int p, int r)
         QuickSort(a, p, q-1);
         QuickSort(a, q+1, r);
     } 
-}
-
-int main()
-{
-    int arr[ARR_SIZE] = {10, 5, 8, 12, 1, 3, 4, 9, 15, 2}, *p;
-    p = arr;
-    QuickSort(p, 0, ARR_SIZE-1);
-
-    printf("final:");
-    for (int i=0; i<ARR_SIZE; i++) {
-        printf("%d ", arr[i]);
-    }
 }

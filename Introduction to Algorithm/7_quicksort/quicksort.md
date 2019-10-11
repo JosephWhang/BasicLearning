@@ -59,6 +59,14 @@ RANDOMIZED-PARTITION(A, p, r)
 ```
 PARTITION(A, p, r)与上述一般快排一致
 
+## 时间复杂度
+
+1. 最坏时间复杂度
+O(n^2)
+
+2. 一般时间复杂度
+O(n * lgn)
+
 ## Q&A
 
 - 为什么log10/9(n) = O(lgn)？
