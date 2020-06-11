@@ -32,3 +32,38 @@ T(n) = O(1)             when n = 1;
 ### 分治策略
 
 如[max_subarray_sum.c](max_subarray_sum.c)所示
+
+```
+FIND-MAXIMUM-SUBARRAY(A, low, high)
+    if high == low
+        return (low, high, A[low])
+    else mid == (low + high) / 2
+        (left-low, left-high, left-sum) 
+            = FIND-MAXIMUM-SUBARRAY(A, low, mid)
+        (right-low, right-high, right-sum)
+            = FIND-MAXIMUM-SUBARRAY(A, mid+1, high)
+        (cross-low, cross-high, cross-sum)
+            = FIND-MAX-CROSSING-SUBARRAY(A, low, mid, high)
+        if left-sum >= right-sum and left-sum >= cross-sum
+            return (left-low, left-high, left-sum)
+        elseif right-sum >= left-sum and right-sum >= cross-sum
+            return (right-low, right-high, right-sum)
+        else return (cross-low, cross-high, cross-sum)
+
+FIND-MAX-CROSSING-SUBARRAY(A, low, mid, high)
+    left-sum = INT_MIN
+    sum = 0
+    for i = mid downto low
+        sum = sum + A[i]
+        if sum > left-sum
+            left-sum = sum
+            max-left = i
+    right-sum = INT_MIN
+    sum = 0
+    for j = mid+1 downto high
+    sum = sum + A[j]
+    if sum > right-sum
+        right-sum = sum
+        max-right = j
+    return (max-left, max-right, left-sum+right-sum)
+```
